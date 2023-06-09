@@ -1,0 +1,15 @@
+$color: #eee;
+body {
+  background-color: $color;
+  user-select: none;
+}
+img {
+  -webkit-user-drag: none;
+}
+
+// home page style
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
