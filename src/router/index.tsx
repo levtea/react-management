@@ -3,8 +3,10 @@ import React, { lazy } from 'react';
 import Home from '@/views/Home';
 import { Navigate } from 'react-router-dom';
 
-const Page1 = lazy(() => import('@/views/Page1'));
-const Page2 = lazy(() => import('@/views/Page2'));
+const Mint = lazy(() => import('@/views/Mint'));
+const GenerateBankAccount = lazy(() => import('@/views/GenerateBankAccount'));
+const AutomaticMint = lazy(() => import('@/views/AutomaticMint'));
+const WithdrawList = lazy(() => import('@/views/Withdraw'));
 
 const withLoadingComponent = (comp: JSX.Element) => (
   <React.Suspense fallback={<div>Loading...</div>}>{comp}</React.Suspense>
@@ -13,21 +15,33 @@ const withLoadingComponent = (comp: JSX.Element) => (
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/page1" />,
+    element: <Navigate to="/mint" />,
   },
   {
     path: '/',
     element: <Home />,
     children: [
       {
-        path: '/page1',
-        element: withLoadingComponent(<Page1 />),
+        path: '/mint',
+        element: withLoadingComponent(<Mint />),
       },
       {
-        path: '/page2',
-        element: withLoadingComponent(<Page2 />),
+        path: '/generateBankAccount',
+        element: withLoadingComponent(<GenerateBankAccount />),
+      },
+      {
+        path: '/automaticMint',
+        element: withLoadingComponent(<AutomaticMint />),
+      },
+      {
+        path: '/withdraw',
+        element: withLoadingComponent(<WithdrawList />),
       },
     ],
+  },
+  {
+    path: '*',
+    element: <Navigate to="/mint" />,
   },
 ];
 
