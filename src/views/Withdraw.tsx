@@ -67,22 +67,22 @@ const View = () => {
 
   useEffect(() => {
     async function loadData() {
-      // const bankWithDrawsRes = await getBankWithDrawsList();
-      // if (bankWithDrawsRes.code !== -1) {
-      //   setBankWithDrawsList(bankWithDrawsRes.data);
-      // }
-      // const billWithDrawsListRes = await getBillWithDraws();
-      // if (billWithDrawsListRes.code !== -1) {
-      //   setBillWithDraws(billWithDrawsListRes.data);
-      // }
-      setBankWithDrawsList([
-        { id: '1', account: 'qqq', balance: '10', email: 'www', name: 'eee', idNo: '111' },
-        { id: '2', account: 'qqq2', balance: '102', email: 'www2', name: 'eee2', idNo: '1112' },
-      ]);
-      setBillWithDraws([
-        { id: '3', billCode: 'aaa', status: 1, amount: '123' },
-        { id: '4', billCode: '4aaa', status: 0, amount: '1234' },
-      ]);
+      const bankWithDrawsRes = await getBankWithDrawsList();
+      if (bankWithDrawsRes.code !== -1) {
+        setBankWithDrawsList(bankWithDrawsRes.data);
+      }
+      const billWithDrawsListRes = await getBillWithDraws();
+      if (billWithDrawsListRes.code !== -1) {
+        setBillWithDraws(billWithDrawsListRes.data);
+      }
+      // setBankWithDrawsList([
+      //   { id: '1', account: 'qqq', balance: '10', email: 'www', name: 'eee', idNo: '111' },
+      //   { id: '2', account: 'qqq2', balance: '102', email: 'www2', name: 'eee2', idNo: '1112' },
+      // ]);
+      // setBillWithDraws([
+      //   { id: '3', billCode: 'aaa', status: 1, amount: '123' },
+      //   { id: '4', billCode: '4aaa', status: 0, amount: '1234' },
+      // ]);
     }
     loadData();
   }, []);
