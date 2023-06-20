@@ -5,7 +5,7 @@ import '@/assets/styles/global.scss';
 
 const View = () => {
   const [cardNo, setCardNo] = React.useState('');
-  const [amount, setAmount] = React.useState('');
+  const [amount, setAmount] = React.useState<number>(0);
   const [address, setAddress] = React.useState('');
   const [mintRes, setMintRes] = React.useState('');
   const [mintLoad, setMintLoad] = React.useState<boolean>(false);
@@ -16,12 +16,12 @@ const View = () => {
     console.log('cardNo', cardNo);
     console.log('amount', amount);
     console.log('address', address);
-    const mintRes = await automaticMint({ cardNo: cardNo, amount: amount, address: address });
+    const mintRes = await automaticMint({ cardNo: cardNo, amount: amount * 100, address: address });
     if (mintRes.code == -1) {
       setMintRes('mint fail');
       setMintLoad(false);
     } else {
-      setMintRes('mint success, mint id is : ' + mintRes.data);
+      setMintRes('mint success');
       setMintLoad(false);
     }
   };
@@ -51,15 +51,15 @@ const View = () => {
         <div style={{ paddingTop: '20px' }}>
           <Row>
             <Col span={6}>
-              <div className="subTitle">{'Amount(Mint总额):'}</div>
+              <div className="subTitle">{'Amount(Mint总额,单位是分):'}</div>
             </Col>
             <Col span={18}>
               <Input
                 className="inputContent"
-                placeholder="Mobile"
+                placeholder="amount"
                 onChange={(e) => {
                   if (e != null) {
-                    setAmount(e.target.value);
+                    setAmount(parseInt(e.target.value));
                   }
                 }}
               />
@@ -69,7 +69,7 @@ const View = () => {
         <div style={{ paddingTop: '20px' }}>
           <Row>
             <Col span={6}>
-              <div className="subTitle">{'Address(??地址):'}</div>
+              <div className="subTitle">{'Address:(目标地址)'}</div>
             </Col>
             <Col span={18}>
               <Input

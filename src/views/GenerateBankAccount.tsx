@@ -17,7 +17,7 @@ const View = () => {
     const generateRes = await generateBankAccount({ name: bankName, mobile: bankMobile, email: bankEmail });
     if (generateRes.code !== -1) {
       setLoad(false);
-      setRes(generateRes.data);
+      setRes(generateRes.data.bankNO);
     } else {
       setLoad(false);
       setRes('generate fail');

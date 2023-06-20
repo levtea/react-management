@@ -9,7 +9,7 @@ export interface mintResponse {
 
 export const mint = function async(params: any): Promise<ResponseType<mintResponse>> {
   return request<mintResponse>({
-    url: '/transfer',
+    url: '/transfers',
     method: 'post',
     data: params,
   });
@@ -37,7 +37,7 @@ export interface automaticMintResponse {
 
 export const automaticMint = function async(params: any): Promise<ResponseType<automaticMintResponse>> {
   return request<automaticMintResponse>({
-    url: '/transfer',
+    url: '/reserve',
     method: 'post',
     data: params,
   });
