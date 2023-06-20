@@ -16,6 +16,7 @@ const View = () => {
     console.log('cardNo', cardNo);
     console.log('amount', amount);
     console.log('address', address);
+    setMintRes('minting');
     const mintRes = await automaticMint({ cardNo: cardNo, amount: amount * 100, address: address });
     if (mintRes.code == -1) {
       setMintRes('mint fail');
@@ -51,7 +52,7 @@ const View = () => {
         <div style={{ paddingTop: '20px' }}>
           <Row>
             <Col span={6}>
-              <div className="subTitle">{'Amount(Mint总额,单位是分):'}</div>
+              <div className="subTitle">{'Amount(Mint总额):'}</div>
             </Col>
             <Col span={18}>
               <Input
