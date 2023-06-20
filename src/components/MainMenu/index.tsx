@@ -16,7 +16,7 @@ function getItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNode,
 }
 
 const items: MenuItem[] = [
-  getItem('Mint', '/mint', <PieChartOutlined />),
+  getItem('Transfer For Mint', '/mint', <PieChartOutlined />),
   getItem('Generate Bank Account', '/generateBankAccount', <DesktopOutlined />),
   getItem('Automatic Mint', '/automaticMint', <PieChartOutlined />),
   getItem('Withdraw List', '/withdraw', <PieChartOutlined />),

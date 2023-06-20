@@ -27,7 +27,7 @@ const View = () => {
       key: 'userAccount',
     },
     {
-      title: 'CreatedAt',
+      title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
       render: formatterTime,
@@ -86,7 +86,7 @@ const View = () => {
         <p className="contentTitle">Withdraw Bank</p>
         <div className="contentInner">
           <div style={{ paddingTop: '20px' }}>
-            <Table dataSource={bankWithDrawsList} columns={BankColumns} pagination={false} size="small" />
+            <Table dataSource={bankWithDrawsList} columns={BankColumns} rowKey="id" pagination={false} size="small" />
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ const View = () => {
         <p className="contentTitle">Withdraw Bill</p>
         <div className="contentInner">
           <div style={{ paddingTop: '20px' }}>
-            <Table dataSource={billWithDrawsList} columns={BillColumns} pagination={false} size="small" />
+            <Table dataSource={billWithDrawsList} columns={BillColumns} rowKey="id" pagination={false} size="small" />
           </div>
         </div>
       </div>

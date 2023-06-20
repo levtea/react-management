@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Input, Col, Row, Button, Table } from 'antd';
 import { mint, mintHistory, getMintHistory } from '@/actions/mint';
 import type { ColumnsType } from 'antd/es/table';
+import { formatterTime } from '@/utils/formatterTime';
 import '@/assets/styles/global.scss';
 
 const View = () => {
@@ -27,6 +28,12 @@ const View = () => {
       title: 'Card Number',
       dataIndex: 'cardNo',
       key: 'cardNo',
+    },
+    {
+      title: 'Created At',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
+      render: formatterTime,
     },
   ];
 
@@ -62,7 +69,7 @@ const View = () => {
   return (
     <div className="content">
       <div>
-        <p className="contentTitle">Mint</p>
+        <p className="contentTitle">Transfer For Mint</p>
         <div className="contentInner">
           <div style={{ paddingTop: '20px' }}>
             <Row>
@@ -103,6 +110,16 @@ const View = () => {
           <div style={{ paddingTop: '20px' }}>
             <Row>
               <Col span={6}>
+                <div className="subTitle">{'Transfer To:'}</div>
+              </Col>
+              <Col span={18}>
+                <p>Official bank account for mint.</p>
+              </Col>
+            </Row>
+          </div>
+          <div style={{ paddingTop: '20px' }}>
+            <Row>
+              <Col span={6}>
                 <Button type="primary" onClick={handleMint} loading={mintLoad}>
                   Mint
                 </Button>
@@ -118,10 +135,10 @@ const View = () => {
       </div>
 
       <div style={{ paddingTop: '150px' }}>
-        <p className="contentTitle">Mint History</p>
+        <p className="contentTitle">Transfer For Mint History</p>
         <div className="contentInner">
           <div style={{ paddingTop: '20px' }}>
-            <Table dataSource={mintList} columns={columns} pagination={false} size="small" />
+            <Table dataSource={mintList} columns={columns} rowKey="id" pagination={false} size="small" />
           </div>
         </div>
       </div>

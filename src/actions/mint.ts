@@ -19,10 +19,11 @@ export interface mintHistory {
   id: string;
   amount: string;
   cardNo: string;
+  createdAt: string;
 }
 
-export const getMintHistory = function async(): Promise<ResponseType<mintResponse[]>> {
-  return request<mintResponse[]>({
+export const getMintHistory = function async(): Promise<ResponseType<mintHistory[]>> {
+  return request<mintHistory[]>({
     url: '/transfers',
     method: 'get',
   });
