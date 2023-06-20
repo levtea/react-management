@@ -74,7 +74,7 @@ const View = () => {
             <Col span={18}>
               <Input
                 className="inputContent"
-                placeholder="Email"
+                placeholder="address"
                 onChange={(e) => {
                   if (e != null) {
                     setAddress(e.target.value);

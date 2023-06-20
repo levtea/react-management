@@ -6,7 +6,7 @@ import '@/assets/styles/global.scss';
 
 const View = () => {
   const [bankNo, setBankNo] = React.useState('');
-  const [amount, setAmount] = React.useState('');
+  const [amount, setAmount] = React.useState<number>(0);
   const [mintRes, setMintRes] = React.useState('');
   const [mintList, setMintList] = React.useState<mintHistory[]>();
   const [mintLoad, setMintLoad] = React.useState<boolean>(false);
@@ -42,13 +42,13 @@ const View = () => {
       // ]);
     }
     loadData();
-  }, []);
+  }, [mintRes]);
 
   const handleMint = async () => {
     console.log('bankNo', bankNo);
     console.log('amount', amount);
     setMintLoad(true);
-    const mintRes = await mint({ cardNo: bankNo, amount: amount });
+    const mintRes = await mint({ cardNo: bankNo, amount: amount * 100 });
     if (mintRes.code == -1) {
       setMintRes('mint fail');
       setMintLoad(false);
@@ -92,7 +92,7 @@ const View = () => {
                   placeholder="Amount"
                   onChange={(e) => {
                     if (e != null) {
-                      setAmount(e.target.value);
+                      setAmount(parseInt(e.target.value));
                     }
                   }}
                 />
