@@ -28,7 +28,7 @@ const View = () => {
 
   return (
     <div className="content">
-      <p className="contentTitle">Automatic Mint</p>
+      <p className="contentTitle">Automatic Mint AINR</p>
       <div className="contentInner">
         <div style={{ paddingTop: '20px' }}>
           <Row>

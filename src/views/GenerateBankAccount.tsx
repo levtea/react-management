@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input, Col, Row, Button } from 'antd';
 import { generateBankAccount } from '@/actions/generateBankAccount';
+import { BankWithDraws, getBankWithDrawsList } from '@/actions/withdraw';
+import type { ColumnsType } from 'antd/es/table';
+import { Table } from 'antd';
+import { formatterTime } from '@/utils/formatterTime';
+
 import '@/assets/styles/global.scss';
 
 const View = () => {
@@ -9,8 +14,52 @@ const View = () => {
   const [bankEmail, setBankEmail] = React.useState('');
   const [res, setRes] = React.useState('');
   const [load, setLoad] = React.useState<boolean>(false);
+  const [bankWithDrawsList, setBankWithDrawsList] = React.useState<BankWithDraws[]>();
 
-  // useEffect(() => {});
+  const BankColumns: ColumnsType<BankWithDraws> = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Account',
+      dataIndex: 'account',
+      key: 'account',
+    },
+    {
+      title: 'Balance',
+      dataIndex: 'balance',
+      key: 'balance',
+      render: (text) => text / 100,
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: 'CreatedAt',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
+      render: formatterTime,
+    },
+  ];
+
+  useEffect(() => {
+    async function loadData() {
+      const bankWithDrawsRes = await getBankWithDrawsList();
+      if (bankWithDrawsRes.code !== -1) {
+        setBankWithDrawsList(bankWithDrawsRes.data);
+      }
+    }
+    loadData();
+  }, [res]);
 
   const handleGenerate = async () => {
     setLoad(true);
@@ -95,6 +144,15 @@ const View = () => {
               </div>
             </Col>
           </Row>
+        </div>
+      </div>
+
+      <div style={{ paddingTop: '120px' }}>
+        <p className="contentTitle">Bank Account List</p>
+        <div className="contentInner">
+          <div style={{ paddingTop: '20px' }}>
+            <Table dataSource={bankWithDrawsList} columns={BankColumns} rowKey="id" pagination={false} size="small" />
+          </div>
         </div>
       </div>
     </div>

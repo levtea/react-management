@@ -21,6 +21,7 @@ const View = () => {
       title: 'Amount',
       dataIndex: 'amount',
       key: 'amount',
+      render: (text) => text / 100,
     },
     {
       title: 'Card Number',
@@ -32,7 +33,7 @@ const View = () => {
   useEffect(() => {
     async function loadData() {
       const mintListRes = await getMintHistory();
-      console.log('mintListRes', mintListRes);
+      // console.log('mintListRes', mintListRes);
       if (mintListRes.code !== -1) {
         setMintList(mintListRes.data);
       }

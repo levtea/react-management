@@ -1,43 +1,36 @@
 import React, { useEffect } from 'react';
 import { Table } from 'antd';
-import { BankWithDraws, getBankWithDrawsList, BillWithDraws, getBillWithDraws } from '@/actions/withdraw';
+import { ReserveAccountOrder, getReserveAccountOrder, BillWithDraws, getBillWithDraws } from '@/actions/withdraw';
 import type { ColumnsType } from 'antd/es/table';
+import { formatterTime } from '@/utils/formatterTime';
 import '@/assets/styles/global.scss';
 
 const View = () => {
-  const [bankWithDrawsList, setBankWithDrawsList] = React.useState<BankWithDraws[]>();
+  const [bankWithDrawsList, setBankWithDrawsList] = React.useState<ReserveAccountOrder[]>();
   const [billWithDrawsList, setBillWithDraws] = React.useState<BillWithDraws[]>();
 
-  const BankColumns: ColumnsType<BankWithDraws> = [
+  const BankColumns: ColumnsType<ReserveAccountOrder> = [
     {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
     },
     {
-      title: 'Account',
-      dataIndex: 'account',
-      key: 'account',
+      title: 'Amount',
+      dataIndex: 'amount',
+      key: 'amount',
+      render: (text) => text / 100,
     },
     {
-      title: 'Balance',
-      dataIndex: 'balance',
-      key: 'balance',
+      title: 'UserAccount',
+      dataIndex: 'userAccount',
+      key: 'userAccount',
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'IdNo',
-      dataIndex: 'idNo',
-      key: 'idNo',
+      title: 'CreatedAt',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
+      render: formatterTime,
     },
   ];
 
@@ -67,7 +60,7 @@ const View = () => {
 
   useEffect(() => {
     async function loadData() {
-      const bankWithDrawsRes = await getBankWithDrawsList();
+      const bankWithDrawsRes = await getReserveAccountOrder();
       if (bankWithDrawsRes.code !== -1) {
         setBankWithDrawsList(bankWithDrawsRes.data);
       }
