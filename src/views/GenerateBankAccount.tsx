@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Input, Col, Row, Button } from 'antd';
-import { generateBankAccount } from '@/actions/generateBankAccount';
+import { bindGenerateBankAccount, generateBankAccount } from '@/actions/generateBankAccount';
 import { BankWithDraws, getBankWithDrawsList } from '@/actions/withdraw';
 import type { ColumnsType } from 'antd/es/table';
 import { Table } from 'antd';
@@ -65,8 +65,13 @@ const View = () => {
     setLoad(true);
     const generateRes = await generateBankAccount({ name: bankName, mobile: bankMobile, email: bankEmail });
     if (generateRes.code !== -1) {
-      setLoad(false);
       setRes(generateRes.data.bankNO);
+      // bind
+      const bindRes = await bindGenerateBankAccount({ name: bankName, bank_number: generateRes.data.bankNO });
+      if (bindRes.code === 200) {
+        setLoad(false);
+        setRes('bank number:' + generateRes.data.bankNO + ' bind address:' + bindRes.data.address);
+      }
     } else {
       setLoad(false);
       setRes('generate fail');

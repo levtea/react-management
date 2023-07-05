@@ -43,3 +43,18 @@ export const automaticMint = function async(params: any): Promise<ResponseType<a
     data: params,
   });
 };
+
+export interface automaticMintHistory {
+  id: string;
+  amount: string;
+  userAccount: string;
+  token_rate: string;
+  createdAt: string;
+}
+
+export const getAutomaticMintList = function async(): Promise<ResponseType<automaticMintHistory[]>> {
+  return request<automaticMintHistory[]>({
+    url: '/reserve',
+    method: 'get',
+  });
+};
