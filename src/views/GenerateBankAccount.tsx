@@ -71,6 +71,9 @@ const View = () => {
       if (bindRes.code === 200) {
         setLoad(false);
         setRes('bank number:' + generateRes.data.bankNO + ' bind address:' + bindRes.data.address);
+      } else {
+        setLoad(false);
+        setRes('bank bind address fail');
       }
     } else {
       setLoad(false);
