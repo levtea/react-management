@@ -36,7 +36,7 @@ const View = () => {
       title: 'Balance',
       dataIndex: 'balance',
       key: 'balance',
-      render: (text) => text / 100,
+      render: (text) => text / 10000,
     },
     {
       title: 'Email',
@@ -70,7 +70,7 @@ const View = () => {
       const bindRes = await bindGenerateBankAccount({ name: bankName, bank_number: generateRes.data.bankNO });
       if (bindRes.code === 200) {
         setLoad(false);
-        setRes('bank number:' + generateRes.data.bankNO + ' bind address:' + bindRes.data.address);
+        setRes('bank number:' + generateRes.data.bankNO + ' bind address:' + bindRes.data.crypto_address);
       } else {
         setLoad(false);
         setRes('bank bind address fail');

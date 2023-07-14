@@ -19,7 +19,7 @@ const View = () => {
       title: 'Amount',
       dataIndex: 'amount',
       key: 'amount',
-      render: (text) => text / 100,
+      render: (text) => text / 10000,
     },
     {
       title: 'UserAccount',

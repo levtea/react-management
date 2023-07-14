@@ -10,7 +10,7 @@ export const generateBankAccount = function async(params: any): Promise<Response
 
 export const bindGenerateBankAccount = function async(params: any): Promise<ResponseType<any>> {
   return frontRequest<any>({
-    url: '/mock_bank',
+    url: '/platform/mock_bank',
     method: 'post',
     data: params,
   });
