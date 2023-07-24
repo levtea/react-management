@@ -1,6 +1,6 @@
 import { Modal, Input, message } from 'antd';
 import { withdraw } from '@/actions/audit';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HandleAudit } from '@/actionsContract/audit';
 import { useWallet } from '@/hooks/wallet/wallet';
 
