@@ -2,7 +2,7 @@
 import React, { lazy } from 'react';
 import Home from '@/views/Home';
 import { Navigate } from 'react-router-dom';
-import ChainInfo from '@/components/ChainInfo/ChainInfo';
+import { ChainInfo } from '@/components/ChainInfo/ChainInfo';
 
 const Mint = lazy(() => import('@/views/MockBank/Mint'));
 const GenerateBankAccount = lazy(() => import('@/views/MockBank/GenerateBankAccount'));

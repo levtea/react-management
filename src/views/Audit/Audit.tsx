@@ -6,6 +6,7 @@ import { Button, Table, Space } from 'antd';
 import { AuditDialog } from '@/components/Dialog/AuditDialog';
 import { GetAuditNum } from '@/actionsContract/audit';
 import { useWallet } from '@/hooks/wallet/wallet';
+import { GetTokenErcName } from '@/actions/chainInfo';
 
 import '@/assets/styles/global.scss';
 
@@ -45,6 +46,7 @@ const View = () => {
       title: 'Token',
       dataIndex: 'token_address',
       key: 'token_address',
+      render: GetTokenErcName,
     },
     {
       title: 'Progress',
@@ -90,13 +92,13 @@ const View = () => {
   useEffect(() => {
     async function loadData() {
       const listRes = await getWithdrawList();
-      console.log('listRes', listRes);
+      // console.log('listRes', listRes);
       setWithdrawList(listRes.data);
       const auditNum = await GetAuditNum(walletData.provider);
       setAuditNum(parseInt(auditNum));
     }
     loadData();
-  }, []);
+  }, [walletData]);
 
   return (
     <div style={{ paddingTop: '10px' }}>

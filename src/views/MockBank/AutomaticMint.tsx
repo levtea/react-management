@@ -48,7 +48,7 @@ const View = () => {
   useEffect(() => {
     async function loadData() {
       const listRes = await getAutomaticMintList();
-      console.log('listRes', listRes);
+      // console.log('listRes', listRes);
       setAutomaticMintHistoryList(listRes.data);
     }
     loadData();
