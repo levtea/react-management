@@ -29,8 +29,11 @@ const Comp: React.FC = () => {
 
   const auditBankItems: MenuItem[] = [getItem('Audit', '/audit/audit', <PieChartOutlined />)];
 
+  const rulesBankItems: MenuItem[] = [getItem('Rules', '/rules/rules', <PieChartOutlined />)];
+
   const items: MenuItem[] = [
     getItem('Audit', 'audit', <PieChartOutlined />, auditBankItems),
+    getItem('Rules', 'rules', <PieChartOutlined />, rulesBankItems),
     getItem('Mock Bank', 'mock_bank', <PieChartOutlined />, mockBankItems),
   ];
 

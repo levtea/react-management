@@ -9,6 +9,7 @@ const GenerateBankAccount = lazy(() => import('@/views/MockBank/GenerateBankAcco
 const AutomaticMint = lazy(() => import('@/views/MockBank/AutomaticMint'));
 const WithdrawList = lazy(() => import('@/views/MockBank/Withdraw'));
 const Audit = lazy(() => import('@/views/Audit/Audit'));
+const Rules = lazy(() => import('@/views/Rules/Rules'));
 
 const withLoadingComponent = (comp: JSX.Element) => (
   <React.Suspense fallback={<div>Loading...</div>}>{comp}</React.Suspense>
@@ -46,6 +47,10 @@ const routes = [
       {
         path: '/audit/audit',
         element: withLoadingComponent(<Audit />),
+      },
+      {
+        path: '/rules/rules',
+        element: withLoadingComponent(<Rules />),
       },
     ],
   },
