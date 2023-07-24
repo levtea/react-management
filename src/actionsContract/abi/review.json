@@ -1,0 +1,646 @@
+[{
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "addAuditorWithThreshold",
+    "inputs": [{
+        "type": "address",
+        "name": "_auditor",
+        "internalType": "address"
+    }, {
+        "type": "uint128",
+        "name": "_threshold",
+        "internalType": "uint128"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+    }],
+    "name": "admins",
+    "inputs": [{
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "audit",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "_withdrawID",
+        "internalType": "bytes16"
+    }, {
+        "type": "bool",
+        "name": "_result",
+        "internalType": "bool"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "changeThreshold",
+    "inputs": [{
+        "type": "uint128",
+        "name": "_threshold",
+        "internalType": "uint128"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+    }],
+    "name": "feeReceiver",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+    }],
+    "name": "getAuditorCount",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "address[]",
+        "name": "",
+        "internalType": "address[]"
+    }],
+    "name": "getAuditors",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+    }],
+    "name": "getDailyWithdrawAmountBySecond",
+    "inputs": [{
+        "type": "address",
+        "name": "token",
+        "internalType": "address"
+    }, {
+        "type": "uint256",
+        "name": "_second",
+        "internalType": "uint256"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+    }],
+    "name": "getPublicKey",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+    }],
+    "name": "getThreshold",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "initialize",
+    "inputs": [{
+        "type": "address",
+        "name": "_publicKey",
+        "internalType": "address"
+    }, {
+        "type": "address",
+        "name": "_receiver",
+        "internalType": "address"
+    }, {
+        "type": "address[]",
+        "name": "_auditors",
+        "internalType": "address[]"
+    }, {
+        "type": "uint128",
+        "name": "_threshold",
+        "internalType": "uint128"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+    }],
+    "name": "isAuditor",
+    "inputs": [{
+        "type": "address",
+        "name": "_auditor",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+    }],
+    "name": "owner",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "pause",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+    }],
+    "name": "paused",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+    }],
+    "name": "records",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "",
+        "internalType": "bytes16"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "removeAuditor",
+    "inputs": [{
+        "type": "address",
+        "name": "_prevAuditor",
+        "internalType": "address"
+    }, {
+        "type": "address",
+        "name": "_auditor",
+        "internalType": "address"
+    }, {
+        "type": "uint128",
+        "name": "_threshold",
+        "internalType": "uint128"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "renounceOwnership",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setAdmin",
+    "inputs": [{
+        "type": "address",
+        "name": "_user",
+        "internalType": "address"
+    }, {
+        "type": "bool",
+        "name": "_auth",
+        "internalType": "bool"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setFeeReceiver",
+    "inputs": [{
+        "type": "address",
+        "name": "_newReceiver",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setPublicKey",
+    "inputs": [{
+        "type": "address",
+        "name": "_key",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setTokenWtihdrawInfo",
+    "inputs": [{
+        "type": "address",
+        "name": "_token",
+        "internalType": "address"
+    }, {
+        "type": "tuple",
+        "name": "_info",
+        "internalType": "struct TokenWithdrawInfo",
+        "components": [{
+            "type": "uint32"
+        }, {
+            "type": "uint64"
+        }, {
+            "type": "uint96"
+        }]
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "swapAuditor",
+    "inputs": [{
+        "type": "address",
+        "name": "_prevAuditor",
+        "internalType": "address"
+    }, {
+        "type": "address",
+        "name": "_oldAuditor",
+        "internalType": "address"
+    }, {
+        "type": "address",
+        "name": "_newAuditor",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "uint32",
+        "name": "singleLimit",
+        "internalType": "uint32"
+    }, {
+        "type": "uint64",
+        "name": "dayLimit",
+        "internalType": "uint64"
+    }, {
+        "type": "uint96",
+        "name": "withdrawFee",
+        "internalType": "uint96"
+    }],
+    "name": "tokenWithdrawInfos",
+    "inputs": [{
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "transferOwnership",
+    "inputs": [{
+        "type": "address",
+        "name": "newOwner",
+        "internalType": "address"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "unpause",
+    "inputs": []
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "withdraw",
+    "inputs": [{
+        "type": "address",
+        "name": "_token",
+        "internalType": "contract IERC20Token"
+    }, {
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+    }, {
+        "type": "bytes16",
+        "name": "_withdrawID",
+        "internalType": "bytes16"
+    }, {
+        "type": "uint256",
+        "name": "_timestamp",
+        "internalType": "uint256"
+    }, {
+        "type": "uint8",
+        "name": "_withdrawV",
+        "internalType": "uint8"
+    }, {
+        "type": "bytes32",
+        "name": "_withdrawR",
+        "internalType": "bytes32"
+    }, {
+        "type": "bytes32",
+        "name": "_withdrawS",
+        "internalType": "bytes32"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "withdrawByPermit",
+    "inputs": [{
+        "type": "address",
+        "name": "_token",
+        "internalType": "contract IERC20Token"
+    }, {
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+    }, {
+        "type": "bytes16",
+        "name": "_withdrawID",
+        "internalType": "bytes16"
+    }, {
+        "type": "uint256",
+        "name": "_timestamp",
+        "internalType": "uint256"
+    }, {
+        "type": "uint8",
+        "name": "_withdrawV",
+        "internalType": "uint8"
+    }, {
+        "type": "bytes32",
+        "name": "_withdrawR",
+        "internalType": "bytes32"
+    }, {
+        "type": "bytes32",
+        "name": "_withdrawS",
+        "internalType": "bytes32"
+    }, {
+        "type": "uint256",
+        "name": "_deadline",
+        "internalType": "uint256"
+    }, {
+        "type": "uint8",
+        "name": "_v",
+        "internalType": "uint8"
+    }, {
+        "type": "bytes32",
+        "name": "_r",
+        "internalType": "bytes32"
+    }, {
+        "type": "bytes32",
+        "name": "_s",
+        "internalType": "bytes32"
+    }]
+}, {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{
+        "type": "address",
+        "name": "token",
+        "internalType": "contract IERC20Token"
+    }, {
+        "type": "uint256",
+        "name": "amount",
+        "internalType": "uint256"
+    }, {
+        "type": "address",
+        "name": "user",
+        "internalType": "address"
+    }, {
+        "type": "uint8",
+        "name": "status",
+        "internalType": "enum WithdrawalStatus"
+    }, {
+        "type": "uint40",
+        "name": "created",
+        "internalType": "uint40"
+    }, {
+        "type": "uint8",
+        "name": "passCount",
+        "internalType": "uint8"
+    }, {
+        "type": "uint8",
+        "name": "refuseCount",
+        "internalType": "uint8"
+    }],
+    "name": "withdrawals",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "",
+        "internalType": "bytes16"
+    }]
+}, {
+    "type": "event",
+    "name": "AddedAuditor",
+    "inputs": [{
+        "type": "address",
+        "name": "auditor",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "ApplyingToWithdraw",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "withdrawId",
+        "indexed": true
+    }, {
+        "type": "tuple",
+        "name": "info",
+        "indexed": false,
+        "components": [{
+            "type": "address"
+        }, {
+            "type": "uint256"
+        }, {
+            "type": "address"
+        }, {
+            "type": "uint8"
+        }, {
+            "type": "uint40"
+        }, {
+            "type": "uint8"
+        }, {
+            "type": "uint8"
+        }]
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "AuditWithdraw",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "withdrawId",
+        "indexed": true
+    }, {
+        "type": "address",
+        "name": "auditor",
+        "indexed": true
+    }, {
+        "type": "bool",
+        "name": "status",
+        "indexed": true
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "ChangedThreshold",
+    "inputs": [{
+        "type": "uint256",
+        "name": "threshold",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "Initialized",
+    "inputs": [{
+        "type": "uint8",
+        "name": "version",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [{
+        "type": "address",
+        "name": "previousOwner",
+        "indexed": true
+    }, {
+        "type": "address",
+        "name": "newOwner",
+        "indexed": true
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "Paused",
+    "inputs": [{
+        "type": "address",
+        "name": "account",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "RemovedAuditor",
+    "inputs": [{
+        "type": "address",
+        "name": "auditor",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "SetAdmin",
+    "inputs": [{
+        "type": "address",
+        "name": "admin",
+        "indexed": true
+    }, {
+        "type": "bool",
+        "name": "auth",
+        "indexed": true
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "SetFeeReceiver",
+    "inputs": [{
+        "type": "address",
+        "name": "receiver",
+        "indexed": true
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "SetTokenInfo",
+    "inputs": [{
+        "type": "address",
+        "name": "token",
+        "indexed": true
+    }, {
+        "type": "tuple",
+        "name": "info",
+        "indexed": false,
+        "components": [{
+            "type": "uint32"
+        }, {
+            "type": "uint64"
+        }, {
+            "type": "uint96"
+        }]
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "Unpaused",
+    "inputs": [{
+        "type": "address",
+        "name": "account",
+        "indexed": false
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "WithdrawResult",
+    "inputs": [{
+        "type": "bytes16",
+        "name": "withdrawId",
+        "indexed": true
+    }, {
+        "type": "uint8",
+        "name": "status",
+        "indexed": true
+    }],
+    "anonymous": false
+}, {
+    "type": "event",
+    "name": "Withdrew",
+    "inputs": [{
+        "type": "address",
+        "name": "token",
+        "indexed": true
+    }, {
+        "type": "address",
+        "name": "sender",
+        "indexed": true
+    }, {
+        "type": "uint256",
+        "name": "amount",
+        "indexed": true
+    }, {
+        "type": "bytes16",
+        "name": "withdrawId",
+        "indexed": false
+    }, {
+        "type": "uint256",
+        "name": "fee",
+        "indexed": false
+    }],
+    "anonymous": false
+}]

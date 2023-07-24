@@ -2,11 +2,13 @@
 import React, { lazy } from 'react';
 import Home from '@/views/Home';
 import { Navigate } from 'react-router-dom';
+import ChainInfo from '@/components/ChainInfo/ChainInfo';
 
-const Mint = lazy(() => import('@/views/Mint'));
-const GenerateBankAccount = lazy(() => import('@/views/GenerateBankAccount'));
-const AutomaticMint = lazy(() => import('@/views/AutomaticMint'));
-const WithdrawList = lazy(() => import('@/views/Withdraw'));
+const Mint = lazy(() => import('@/views/MockBank/Mint'));
+const GenerateBankAccount = lazy(() => import('@/views/MockBank/GenerateBankAccount'));
+const AutomaticMint = lazy(() => import('@/views/MockBank/AutomaticMint'));
+const WithdrawList = lazy(() => import('@/views/MockBank/Withdraw'));
+const Audit = lazy(() => import('@/views/Audit/Audit'));
 
 const withLoadingComponent = (comp: JSX.Element) => (
   <React.Suspense fallback={<div>Loading...</div>}>{comp}</React.Suspense>
@@ -15,33 +17,41 @@ const withLoadingComponent = (comp: JSX.Element) => (
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/mint" />,
+    element: <Navigate to="/mock_bank/mint" />,
   },
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <ChainInfo>
+        <Home />
+      </ChainInfo>
+    ),
     children: [
       {
-        path: '/mint',
+        path: '/mock_bank/mint',
         element: withLoadingComponent(<Mint />),
       },
       {
-        path: '/generateBankAccount',
+        path: '/mock_bank/generateBankAccount',
         element: withLoadingComponent(<GenerateBankAccount />),
       },
       {
-        path: '/automaticMint',
+        path: '/mock_bank/automaticMint',
         element: withLoadingComponent(<AutomaticMint />),
       },
       {
-        path: '/withdraw',
+        path: '/mock_bank/withdraw',
         element: withLoadingComponent(<WithdrawList />),
+      },
+      {
+        path: '/audit/audit',
+        element: withLoadingComponent(<Audit />),
       },
     ],
   },
   {
     path: '*',
-    element: <Navigate to="/mint" />,
+    element: <Navigate to="/mock_bank/mint" />,
   },
 ];
 

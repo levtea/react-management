@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Layout, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
 import MainMenu from '@/components/MainMenu';
+import MainHeader from '@/components/Header';
 
-const { Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
 const View: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,6 +23,9 @@ const View: React.FC = () => {
       </Sider>
       {/* right content */}
       <Layout>
+        <Header style={{ padding: 0, background: colorBgContainer }}>
+          <MainHeader />
+        </Header>
         <Content style={{ margin: '16px 16px 0px', padding: 24, minHeight: 360, background: colorBgContainer }}>
           <Outlet />
         </Content>
