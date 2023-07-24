@@ -17,3 +17,15 @@ export const HandleAudit = async (provider: BrowserProvider, order: withdraw, st
     return err.reason;
   }
 };
+
+export const GetAuditNum = async (provider: BrowserProvider) => {
+  const signer = await provider.getSigner();
+  const contract = new ethers.Contract(import.meta.env.VITE_WITHDRAW_ADDRESS_CONTRACT, reviewABI, signer);
+  try {
+    const res = await contract.getThreshold();
+    return res;
+  } catch (err: any) {
+    console.log('err', err);
+    return 0;
+  }
+};

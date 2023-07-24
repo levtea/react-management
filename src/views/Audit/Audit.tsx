@@ -4,6 +4,9 @@ import type { ColumnsType } from 'antd/es/table';
 import { formatterTimeStampTime } from '@/utils/formatterTime';
 import { Button, Table, Space } from 'antd';
 import { AuditDialog } from '@/components/Dialog/AuditDialog';
+import { GetAuditNum } from '@/actionsContract/audit';
+import { useWallet } from '@/hooks/wallet/wallet';
+
 import '@/assets/styles/global.scss';
 
 const View = () => {
@@ -11,6 +14,8 @@ const View = () => {
   const [withdrawOrder, setWithdrawOrder] = useState<withdraw>();
   const [withdrawAuditDialogFlag, setWithdrawAuditDialogFlag] = useState(false);
   const [withdrawAuditHandleFlag, setWithdrawAuditHandleFlag] = useState(false);
+  const [auditNum, setAuditNum] = useState(0);
+  const walletData = useWallet();
 
   const PassWithdraw = (item: withdraw) => {
     setWithdrawAuditHandleFlag(true);
@@ -45,6 +50,12 @@ const View = () => {
       title: 'Status',
       dataIndex: 'status',
       key: 'status',
+    },
+    {
+      title: 'Progress',
+      render: (row) => {
+        return <>{`${row.pass_count} / ${auditNum}`}</>;
+      },
     },
     {
       title: 'Created At',
@@ -86,6 +97,8 @@ const View = () => {
       const listRes = await getWithdrawList();
       console.log('listRes', listRes);
       setWithdrawList(listRes.data);
+      const auditNum = await GetAuditNum(walletData.provider);
+      setAuditNum(parseInt(auditNum));
     }
     loadData();
   }, []);

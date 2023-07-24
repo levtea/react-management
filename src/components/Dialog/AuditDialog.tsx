@@ -1,6 +1,6 @@
 import { Modal, Input, message } from 'antd';
 import { withdraw } from '@/actions/audit';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HandleAudit } from '@/actionsContract/audit';
 import { useWallet } from '@/hooks/wallet/wallet';
 
@@ -19,12 +19,14 @@ export const AuditDialog = ({
   const walletData = useWallet();
   const [messageApi, contextHolder] = message.useMessage();
   const [confirmLoading, setConfirmLoading] = useState(false);
+
   const success = () => {
     messageApi.open({
       type: 'success',
       content: 'Success',
     });
   };
+
   const error = (res: string) => {
     messageApi.open({
       type: 'error',
