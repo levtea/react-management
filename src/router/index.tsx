@@ -17,7 +17,7 @@ const withLoadingComponent = (comp: JSX.Element) => (
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/mock_bank/mint" />,
+    element: <Navigate to="/audit/audit" />,
   },
   {
     path: '/',
@@ -51,7 +51,7 @@ const routes = [
   },
   {
     path: '*',
-    element: <Navigate to="/mock_bank/mint" />,
+    element: <Navigate to="/audit/audit" />,
   },
 ];
 
