@@ -68,7 +68,7 @@ const View = () => {
   ];
   return (
     <div style={{ paddingTop: '10px' }}>
-      <p className="contentTitle">Withdraw list</p>
+      <p className="contentTitle">Rules list</p>
       <div className="contentInner">
         <div style={{ paddingTop: '20px' }}>
           <Table dataSource={dataSource} columns={columns} rowKey="key" pagination={false} size="small" />
