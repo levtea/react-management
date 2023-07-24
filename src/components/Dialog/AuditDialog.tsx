@@ -18,6 +18,7 @@ export const AuditDialog = ({
   const [reason, setReason] = useState('');
   const walletData = useWallet();
   const [messageApi, contextHolder] = message.useMessage();
+  const [confirmLoading, setConfirmLoading] = useState(false);
   const success = () => {
     messageApi.open({
       type: 'success',
@@ -33,11 +34,14 @@ export const AuditDialog = ({
 
   const handleAudit = async () => {
     console.log('reason', reason);
+    setConfirmLoading(true);
     if (withdrawOrder) {
       const res = await HandleAudit(walletData.provider, withdrawOrder, isPass);
       if (res) {
+        setConfirmLoading(false);
         error(res);
       } else {
+        setConfirmLoading(false);
         success();
       }
     }
@@ -46,7 +50,12 @@ export const AuditDialog = ({
   return (
     <>
       {contextHolder}
-      <Modal title={'Refuse'} open={isOpen} onOk={() => handleAudit()} onCancel={() => onClose()}>
+      <Modal
+        title={'Refuse'}
+        open={isOpen}
+        confirmLoading={confirmLoading}
+        onOk={() => handleAudit()}
+        onCancel={() => onClose()}>
         <Input
           width={'100%'}
           placeholder={isPass ? 'notes(optional)' : 'refuse reason'}
