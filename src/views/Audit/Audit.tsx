@@ -47,11 +47,6 @@ const View = () => {
       key: 'token_address',
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
-    },
-    {
       title: 'Progress',
       render: (row) => {
         return <>{`${row.pass_count} / ${auditNum}`}</>;
