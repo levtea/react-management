@@ -29,7 +29,7 @@ const View: React.FC = () => {
         <Content style={{ margin: '16px 16px 0px', padding: 24, minHeight: 360, background: colorBgContainer }}>
           <Outlet />
         </Content>
-        <Footer style={{ textAlign: 'center', padding: 0, lineHeight: '48px' }}>Fake Bank</Footer>
+        <Footer style={{ textAlign: 'center', padding: 0, lineHeight: '48px' }}>CDBC</Footer>
       </Layout>
     </Layout>
   );
